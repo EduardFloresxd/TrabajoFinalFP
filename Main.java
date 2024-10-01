@@ -5,11 +5,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        String[] trabajador = new String[10]; // Arreglo para recolectar la informacion de 10 trabajadores
-        double[] horasTrabajadas = new double[10];
-        double[] horasPerdidas = new double[10];
-        double[] horasExtra = new double[10];
-        double[] bonos = new double[10];
+        String[] trabajador = new String[2]; // Arreglo para recolectar la informacion de 10 trabajadores
+        double[] horasTrabajadas = new double[2];
+        double[] horasPerdidas = new double[2];
+        double[] horasExtra = new double[2];
+        double[] bonos = new double[2];
 
         char continuar = 's';
 
@@ -21,16 +21,21 @@ public class Main {
 
                 System.out.println("Ingrese las horas trabajadas:");
                 horasTrabajadas[i] = scanner.nextDouble();
+                scanner.nextLine(); // Consume el salto de línea
 
-                System.out.println("Ingrese las horas trabajadas perdidas:");
+                System.out.println("Ingrese las horas de trabajo perdidas:");
                 horasPerdidas[i] = scanner.nextDouble();
+                scanner.nextLine(); // Consume el salto de línea
 
                 System.out.println("Ingrese las horas extra trabajadas:");
                 horasExtra[i] = scanner.nextDouble();
+                scanner.nextLine(); // Consume el salto de línea
 
                 System.out.println("Ingrese los ingresos por bonos:");
                 bonos[i] = scanner.nextDouble();
+                scanner.nextLine(); // Consume el salto de línea
 
+                System.out.println(" ");
             }
 
             for (int i = 0; i < trabajador.length; i++) {
@@ -41,12 +46,12 @@ public class Main {
                 double sueldoTotal = sueldoBase + pagoHorasExtra + bonos[i] - descuentos; //Las horas extra tienen un aumento, lo que hace que paguen 10 soles
 
                 System.out.println("-----------------------------------------------");
-                System.out.println("Boleta de " + trabajador[i]);
-                System.out.println("Horas trabajadas: " + horasTrabajadas[i]);
-                System.out.println("Horas perdidas: " + horasPerdidas[i]);
-                System.out.println("Horas extra: " + horasExtra[i]);
-                System.out.println("Bonos: S/" + bonos[i] +" nuevos soles.");
-                System.out.println("Sueldo total: S/ " + sueldoTotal+" nuevos soles.");
+                System.out.println("|   Boleta de " + trabajador[i]);
+                System.out.println("|   Horas trabajadas: " + horasTrabajadas[i]);
+                System.out.println("|   Horas perdidas: " + horasPerdidas[i]);
+                System.out.println("|   Horas extra: " + horasExtra[i]);
+                System.out.println("|   Bonos: S/" + bonos[i] +" nuevos soles.");
+                System.out.println("|   Sueldo total: S/ " + sueldoTotal+" nuevos soles.");
                 System.out.println("-----------------------------------------------");
                 System.out.println(" ");
 
@@ -55,6 +60,7 @@ public class Main {
 
             System.out.println("\n¿Desea calcular las boletas de otros 10 trabajadores? (s/n):");
             continuar = scanner.next().charAt(0);
+            scanner.nextLine(); // Consume el salto de línea restante
         }
 
         scanner.close();
